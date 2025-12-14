@@ -18,6 +18,9 @@ class Game:
         self.player_x = SCREEN_W // 2
         self.player_y = SCREEN_H // 2
 
+        pyxel.images[2].load(0, 0, "o1.png", True)
+        self.umplus10 = pyxel.Font("assets/umplus_j10r.bdf")
+
         self.message = ""
         self.message_timer = 0
 
@@ -142,10 +145,12 @@ class Game:
 
     def draw_title(self):
         pyxel.cls(1)
-        pyxel.load("my_resource.pyxres")
-        pyxel.blt(0, 0, 0, 0, 0, 160, 120)
-        pyxel.rect(30, 80, 100, 20, 7)
-        pyxel.text(45, 87, "TAMA-Land Adventure", (pyxel.frame_count //2) % 16)
+        # pyxel.load("my_resource.pyxres")
+        # pyxel.blt(0, 0, 0, 0, 0, 160, 120)
+        pyxel.blt(0, 0, 2, 0, 0, 160, 120)
+        # pyxel.rect(30, 80, 100, 20, 7)
+        pyxel.text(95, 87, "タマランドに", (pyxel.frame_count //2) % 32, self.umplus10)
+        pyxel.text(95, 100, "ようこそ！", (pyxel.frame_count //2) % 32, self.umplus10)
 
     def draw_playing(self):
         room = self.rooms[self.current_room]
