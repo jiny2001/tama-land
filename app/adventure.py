@@ -63,11 +63,11 @@ class Game:
         elif self.state == STATE_PLAYING:
             self.update_playing()
         elif self.state == STATE_GAMEOVER:
-            if self.click() or pyxel.btnp(32) or pyxel.btnp(pyxel.KEY_SPACE):
+            if self.click() or pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT) or pyxel.btnp(pyxel.KEY_SPACE):
                 self.reset_game()
 
     def update_title(self):
-        if pyxel.btnp(0) or pyxel.btn(0) or pyxel.btnp(32):
+        if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
             self.reset_game()
 
     def reset_game(self):
@@ -98,7 +98,7 @@ class Game:
         self.player_y = max(8, min(SCREEN_H - 8, self.player_y))
 
         # interaction
-        if pyxel.btnp(pyxel.KEY_Z) or pyxel.btnp(90) or pyxel.btnp(32):
+        if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
             self.try_interact()
 
         # message timer
