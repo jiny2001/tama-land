@@ -67,7 +67,7 @@ class Game:
                 self.reset_game()
 
     def update_title(self):
-        if self.click() or pyxel.btnp(32) or pyxel.btnp(pyxel.KEY_SPACE):
+        if pyxel.btnp(0) or pyxel.btn(0) or pyxel.btnp(32):
             self.reset_game()
 
     def reset_game(self):
